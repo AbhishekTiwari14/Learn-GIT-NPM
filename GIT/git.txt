@@ -1,0 +1,54 @@
+-> Git is a version control system(vcs), it is used to 
+    - Track code history (& ability to revert to older version of code)
+    - Collaberate
+    
+-> Configure Git: to tell ki hum kis github account use karne wale hain.
+1) git config --global user.name "MyUsername"
+2) git config --global user.email "MyEmail"
+git config --list //will give details about configuration done
+//global v/s local: 
+
+COMMANDS:
+-> git clone <repoLink> : will create a local clone of the github repo. (local => mera laptop, remote => github pe hosted repo)  
+//cd "./floderName" to get into the cloned folder/repo
+
+-> git status: tells if we have made any cahnge to any file or not(compared to github version)
+types of status: 1)untracked: nayi file jo abhi tak github pe push nahi hui, 2)modified: existing file me changes, 3) staged: file ready to be commited, 4)unmodified: unchanged
+
+-> 3 steps process to push code to github repo: 1)add: adds a file to staging area 2)commit: commits changes to repo, 3) push
+-> git add index.html: will add this file to staging area
+// git add .: will add all the files to staging area
+-> git commit -m "some message": will commit all the added/staged files to repo.
+-> git push origin main: will actually reflect changes in github repo
+//origin => vo github repo jahan se humne clone kiya tha, main = branch name in which we are pushing
+
+creating a new project from local: init
+-> mkdir "folderName" : will create a new folder in our vscode(local)
+-> git init: makes the current folder a git folder/repo(initializes a git repo)
+-> do git add. & git commit.
+-> create a new repo on github
+-> git remote add origin <repoGithubLink>
+-> git branch : batayega ki hum abhi kis branch pe hain (master is the default branch)
+-> git branch -M main : humne current branch(master) ka naam badal kar main rakh dia hai
+-> git push -u origin main: main branch pe push kardega code. -u lagaya to ye branch default branch ban jayegi(aage, sirf "git push" likhne se isi branch pe code push hojayega)
+
+................................................
+
+GIT BRANCHES: 
+->different branches' commits won't be mixed up. We merge branches to merge commits made in both branches
+->git branch: tells current branch we are at
+->git branch -M <newName> : to rename current branch
+->git checkout <branchName>: to move to another branch(which is already existing)
+->git checkout -b <newBranchName>: to create & move to new branch
+->git branch -d <branchName>: to delete a branch(we cannot delete the branch we are currently on)
+
+Merging two branches: 
+Way1: CLI
+-> git diff <branchname>: compares current branch with <branchName> & tells which one is ahead(has newer code)  
+-> git merge <branchName>: will merge <branchName> into the current branch
+-> git push origin main-> to see merged code in github repo
+
+Way2: Pull Request
+-> one working on some feature branch can raise a PR, ie, he can request to merge his branch to the main branch. 
+
+-> git pull origin main: lacally(vs code pe) bhi merge show hoga

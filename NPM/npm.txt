@@ -1,0 +1,49 @@
+1) npm = package manager just for node (it cannot work with other language)
+
+2) It's hell task to build complex apps from absolute scratch, so we bulid on other people's work.
+
+3) people open source such codes doing some basic low-level task as packages and npm acts as repository to host these packages 
+
+4)NPM acts as a CLI(command line) tool via which we can fetch/install/manage/remove/update/upgrade these pacakges
+
+5) npm v/s yarn: yarn = alternative of npm. both are pretty much same.
+
+6) manage node versions: to have multiple node versions and use a particular node version for a particular project/task: nvm/n-> difficult to do on windows, easier to do on mac/linux
+
+7) What are node modules?
+-> all the external packages of npm are placed here
+
+8) Installing a npm package: 
+npm i lodash -> npm installs the tar file of the particular package and puts it into node modules
+
+9) package.json: special file used by npm for listing(keeping track of) pacakges & their dependecies installed as it is a tedious task to scan node modules to get these info
+
+10) npm init -y: will create package.json file
+
+11) Removing a package: npm remove/uninstall lodash
+
+12) local v/s global modules: 
+->  Local modules are available only within the project where they are installed and cannot be accessed from outside project.
+->  Global modules are installed globally on your system and you can use them in any Node.js project or script without the need to install them in each project individually.
+npm i -g lodash
+
+13) Semantic versioning of packages: Ex.) React 16.05.12 
+version no.: MAJOR.MINOR.PATCH
+-> MAJOR: major change, minor: minor change/new feature, patch: small change such as bug fix
+-> This is just guideline and is not enforced on devs making these packages
+
+14) package-lock.json File:  Devs. generally don't follow semantic versioning of packages, so if & when we upgrade a package, it may cause compatibility problems with its dependenceies.
+This file records the exact version of each dependency, including its sub-dependencies. This ensures that the same versions of dependencies are used consistently across different installations or environments.
+
+15) ^ 14.0.0 => use the latest minor updated version of 14 major version, ie, use 14.x.y where x & y are max. published versions
+
+16) ~14.0.0 => 14.0.(x)max ; ~17.2.0 => 17.2.(y)max ; ie, use the latest patch version
+
+17) npm i packageName : puts the package in dependencies object in package.json file. All the packages that we don't need at production(ex. build tools, etc.) should be installed as devDependencies. 
+
+18) peer dependenceies: used/created by host creating the package. 
+-> react-dom package creator should have react as peer dependency bcoz react-dom cannot be used withou react package
+
+19) NPM Scripts: within the scripts object in package.json file, we can write terminal/CLi scripts as values & use keys to run the script as: npm key(if key is predefined such as start, preinstall, etc.) or npm run key(when key is custom named)
+
+20) npx: helps 1) run local packages: npx run lodash 2)run npm tools without actually installing them globally-> it installs package->executes it->deletes it 
